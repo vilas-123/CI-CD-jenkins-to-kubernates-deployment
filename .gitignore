@@ -1,0 +1,12 @@
+# Python/Django
+__pycache__/
+*.py[cod]
+db.sqlite3
+venv/
+.env
+
+# Ignore the other project folders and large files
+node_modules/
+tataresearch/
+*.zip
+.angular/
