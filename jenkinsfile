@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "YOUR_DOCKERHUB_USERNAME/django-app"
+        DOCKER_IMAGE = "vilas12/django-app"
         DOCKER_TAG   = "${BUILD_NUMBER}"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME'
+                git branch: 'main', url: 'https://github.com/vilas-123/CI-CD-jenkins-to-kubernates-deployment'
             }
         }
 
@@ -60,7 +60,10 @@ pipeline {
 
     post {
         failure {
-            echo "Pipeline failed — add Slack/email here later"
+            echo "Pipeline failed!"
+        }
+        success {
+            echo "Successfully pushed vilas12/django-app:${BUILD_NUMBER} to DockerHub!"
         }
     }
 }
